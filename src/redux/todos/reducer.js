@@ -1,4 +1,4 @@
-import { ADD_TODO, MARK_COMPLETE } from "./actionTypes";
+import { ADD_TODO, DELETE_ONGOING, MARK_COMPLETE } from "./actionTypes";
 
 const init = {
   loading: false,
@@ -38,6 +38,16 @@ export const reducer = (state = init, { type, payload }) => {
         ongoing: new_ongoing,
         completed: [...state.completed, payload],
       };
+
+    case DELETE_ONGOING:
+      let new_ongoing_remove = state.ongoing.filter((el) =>
+        el.id === payload.id ? false : true
+      );
+      return {
+        ...state,
+        ongoing: new_ongoing_remove,
+      };
+
     default:
       return state;
   }

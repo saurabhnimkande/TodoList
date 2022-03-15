@@ -9,6 +9,7 @@ import {
   GET_TODO_SUCCESS,
   TOGGLE_TODO,
   MARK_COMPLETE,
+  DELETE_ONGOING,
 } from "./actionTypes";
 
 export const addTodo = (payload) => ({
@@ -18,6 +19,11 @@ export const addTodo = (payload) => ({
 
 export const markComplete = (payload) => ({
   type: MARK_COMPLETE,
+  payload,
+});
+
+export const deleteOngoing = (payload) => ({
+  type: DELETE_ONGOING,
   payload,
 });
 
