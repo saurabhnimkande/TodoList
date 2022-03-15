@@ -1,4 +1,4 @@
-#ongoingTodosMainDiv {
+.ongoingTodosMainDiv {
   overflow-y: scroll;
   height: 460px;
 }

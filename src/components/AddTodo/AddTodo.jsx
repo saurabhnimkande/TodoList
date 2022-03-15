@@ -30,7 +30,8 @@ export const AddTodo = () => {
   };
 
   const handelAddTodo = () => {
-    let { date, time, title } = todoData.current;
+    todoData.current.id = uuidv4();
+    let { date, time, title, description } = todoData.current;
     if (title === "") {
       message.error("Please Enter Title");
       return;
@@ -43,9 +44,17 @@ export const AddTodo = () => {
       message.error("Please Enter Time");
       return;
     }
-    todoData.current.id = uuidv4();
-    dispatch(addTodo(todoData.current));
-    message.success("To-do Added Successfully");
+
+    let new_obj = {
+      id: uuidv4(),
+      title,
+      description,
+      date,
+      time,
+    };
+
+    dispatch(addTodo(new_obj));
+    message.success("Task Added Successfully");
   };
 
   return (
@@ -67,7 +76,7 @@ export const AddTodo = () => {
       <Button
         type="primary"
         style={{
-          marginLeft: "160px",
+          marginLeft: "40%",
           marginTop: "25px",
           marginBottom: "10px",
         }}

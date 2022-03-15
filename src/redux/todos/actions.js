@@ -1,15 +1,10 @@
 import {
   ADD_TODO,
-  ADD_TODO_ERROR,
-  ADD_TODO_LOADING,
-  ADD_TODO_SUCCESS,
-  REMOVE_TODO,
-  GET_TODO_ERROR,
-  GET_TODO_LOADING,
-  GET_TODO_SUCCESS,
-  TOGGLE_TODO,
   MARK_COMPLETE,
   DELETE_ONGOING,
+  DELETE_COMPLETED,
+  DELETE_ALL_COMPLETED,
+  MARK_INCOMPLETE,
 } from "./actionTypes";
 
 export const addTodo = (payload) => ({
@@ -27,40 +22,16 @@ export const deleteOngoing = (payload) => ({
   payload,
 });
 
-export const removeTodo = (payload) => ({
-  type: REMOVE_TODO,
+export const deleteCompleted = (payload) => ({
+  type: DELETE_COMPLETED,
   payload,
 });
 
-export const toggleTodo = (payload) => ({
-  type: TOGGLE_TODO,
+export const deleteAllCompleted = () => ({
+  type: DELETE_ALL_COMPLETED,
+});
+
+export const markIncomplete = (payload) => ({
+  type: MARK_INCOMPLETE,
   payload,
-});
-
-export const addTodoLoading = () => ({
-  type: ADD_TODO_LOADING,
-});
-
-export const addTodoSuccess = (data) => ({
-  type: ADD_TODO_SUCCESS,
-  payload: data,
-});
-
-export const addTodoError = (err) => ({
-  type: ADD_TODO_ERROR,
-  payload: err,
-});
-
-export const getTodoLoading = () => ({
-  type: GET_TODO_LOADING,
-});
-
-export const getTodoSuccess = (data) => ({
-  type: GET_TODO_SUCCESS,
-  payload: data,
-});
-
-export const getTodoError = (error) => ({
-  type: GET_TODO_ERROR,
-  payload: error,
 });

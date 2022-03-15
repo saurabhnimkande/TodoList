@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import "./Ongoing.css";
 import { markComplete, deleteOngoing } from "../../redux/todos/actions";
 export const Ongoing = () => {
@@ -9,15 +9,16 @@ export const Ongoing = () => {
   }));
 
   const markCompleted = (payload) => {
+    message.success("Task Completed!");
     dispatch(markComplete(payload));
   };
 
   const removeOngoing = (payload) => {
+    message.success("Task Deleted!");
     dispatch(deleteOngoing(payload));
   };
-
   return (
-    <div id="ongoingTodosMainDiv">
+    <div className="ongoingTodosMainDiv">
       {ongoing.map((el) => (
         <div key={el.id} className="ongoingTaskIndividual">
           <div>

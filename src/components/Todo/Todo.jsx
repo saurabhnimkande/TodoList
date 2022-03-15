@@ -6,7 +6,7 @@ import "./Todo.css";
 export const Todo = () => {
   return (
     <div>
-      <h1>To-Do-List</h1>
+      <h1 style={{ fontWeight: "bold", paddingTop: "10px" }}>To-Do-List</h1>
       <div id="todoContainer">
         <div>
           <AddTodo></AddTodo>
