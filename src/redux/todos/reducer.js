@@ -1,33 +1,17 @@
-import { ADD_TODO } from "./actionTypes";
+import { ADD_TODO, MARK_COMPLETE } from "./actionTypes";
 
 const init = {
   loading: false,
   ongoing: [
     {
+      id: "f17a6840-9594-475f-8eda-0159b7418260",
       title: "Masai Scrum - Preparation",
       description: "Prepare for the react-redux topic.",
       date: "2022-03-15",
       time: "10:35:15",
     },
     {
-      title: "Interview Preparation",
-      description: "Basics of Javascript",
-      date: "2022-03-15",
-      time: "16:00:00",
-    },
-    {
-      title: "Interview Preparation",
-      description: "Basics of Javascript",
-      date: "2022-03-15",
-      time: "16:00:00",
-    },
-    {
-      title: "Interview Preparation",
-      description: "Basics of Javascript",
-      date: "2022-03-15",
-      time: "16:00:00",
-    },
-    {
+      id: "5d41a828-a84e-4b6d-853c-30fd2547dd86",
       title: "Interview Preparation",
       description: "Basics of Javascript",
       date: "2022-03-15",
@@ -45,6 +29,15 @@ export const reducer = (state = init, { type, payload }) => {
         ongoing: [...state.ongoing, payload],
       };
 
+    case MARK_COMPLETE:
+      let new_ongoing = state.ongoing.filter((el) =>
+        el.id === payload.id ? false : true
+      );
+      return {
+        ...state,
+        ongoing: new_ongoing,
+        completed: [...state.completed, payload],
+      };
     default:
       return state;
   }

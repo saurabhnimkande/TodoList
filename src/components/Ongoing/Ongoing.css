@@ -11,6 +11,10 @@
 .ongoingTaskIndividual > div:nth-child(1) {
   flex-basis: 80%;
 }
+.ongoingTaskIndividual > div:nth-child(2) {
+  flex-basis: 20%;
+  padding-top: 2px;
+}
 .ongoingTaskIndividual > div:nth-child(1) > p {
   margin: 0;
 }

@@ -2,11 +2,17 @@ import { Input, DatePicker, TimePicker, Button, message } from "antd";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../redux/todos/actions";
+import { v4 as uuidv4 } from "uuid";
 const { TextArea } = Input;
 export const AddTodo = () => {
   const dispatch = useDispatch();
-  let todoData = useRef({ title: "", description: "", date: "", time: "" });
-
+  let todoData = useRef({
+    id: "",
+    title: "",
+    description: "",
+    date: "",
+    time: "",
+  });
   const handelDate = (date, dateString) => {
     todoData.current.date = dateString;
   };
@@ -37,7 +43,7 @@ export const AddTodo = () => {
       message.error("Please Enter Time");
       return;
     }
-
+    todoData.current.id = uuidv4();
     dispatch(addTodo(todoData.current));
     message.success("To-do Added Successfully");
   };

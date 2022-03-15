@@ -8,10 +8,16 @@ import {
   GET_TODO_LOADING,
   GET_TODO_SUCCESS,
   TOGGLE_TODO,
+  MARK_COMPLETE,
 } from "./actionTypes";
 
 export const addTodo = (payload) => ({
   type: ADD_TODO,
+  payload,
+});
+
+export const markComplete = (payload) => ({
+  type: MARK_COMPLETE,
   payload,
 });
 
