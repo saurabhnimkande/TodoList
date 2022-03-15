@@ -61,7 +61,7 @@ export const AddTodo = () => {
     <>
       <h1>Add Todo</h1>
       <p>Todo Title : </p>
-      <Input placeholder="Basic usage" onChange={handelTitle} />
+      <Input placeholder="Enter Title" onChange={handelTitle} />
       <p>Date:</p>
       <DatePicker onChange={handelDate} />
       <p>Time:</p>
