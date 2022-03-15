@@ -1,6 +1,7 @@
 #todoContainer {
   display: flex;
   gap: 20px;
+  height: 560px;
 }
 #todoContainer > div {
   flex-basis: 33.33%;
